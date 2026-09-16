@@ -1,0 +1,10 @@
+/lmnt
+*.qcow2
+*.img
+bin/
+build/
+dist/
+.idea/
+.vscode/
+test.img
+.idea

@@ -1,0 +1,28 @@
+version: "2"
+
+linters:
+  default: standard
+  enable:
+    - errorlint
+    - gocritic
+    - gosec
+    - misspell
+    - nolintlint
+    - prealloc
+    - unconvert
+    - unparam
+  settings:
+    gosec:
+      excludes:
+        # QEMU and docker are started with computed argument lists by design,
+        # every value goes through qemucli's validator or is a path we stat.
+        - G204
+  exclusions:
+    rules:
+      - path: _test\.go
+        linters: [gosec, errcheck]
+
+formatters:
+  enable:
+    - gofmt
+    - goimports
